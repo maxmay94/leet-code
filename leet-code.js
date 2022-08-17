@@ -184,3 +184,47 @@ var removeNthFromEnd = function(head, n) {
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  20. Valid Parentheses
+  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+  An input string is valid if:
+  Open brackets must be closed by the same type of brackets.
+  Open brackets must be closed in the correct order.
+*/
+
+var isValid = function(s) {
+  if(s.length < 2) return false
+  
+  let stack = []
+  let valid = true
+  for(let i = 0; i < s.length; i++) {
+      if(s[i] === '(' || s[i] === '[' || s[i] === '{' ) {
+          stack.push(s[i])
+      } else {
+          let temp = stack.pop()
+          if(temp === undefined) {
+              valid = false
+              break
+          } else if(temp === '(' && s[i] !== ')') {
+              valid = false
+              break
+          } else if(temp === '[' && s[i] !== ']') {
+              valid = false
+              break
+          } else if(temp === '{' && s[i] !== '}') {
+              valid = false
+              break
+          }
+      }
+  }
+  if(stack.length !== 0) valid = false
+  return valid
+}
+
+/*
+  Runtime: 92 ms, faster than 57.18% of JavaScript online submissions for Valid Parentheses.
+  Memory Usage: 42.3 MB, less than 73.01% of JavaScript online submissions for Valid Parentheses.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
