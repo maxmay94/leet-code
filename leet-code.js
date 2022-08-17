@@ -116,3 +116,34 @@ var isPalindrome = function(x) {
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+  14. Longest Common Prefix
+  Write a function to find the longest common prefix string amongst an array of strings.
+  If there is no common prefix, return an empty string "".
+*/
+
+var longestCommonPrefix = function(strs) {
+  let result = []
+  
+  for(let i in strs[0]){
+      let same = true
+      for(let j = 1; j < strs.length; j++){
+          if(strs[j][i] !== strs[0][i]) {
+              same = !same
+              break
+          }
+      }
+      if(same) result.push(strs[0][i])
+      else break
+  }
+  return result.join('')
+}
+
+/*
+  Runtime: 91 ms, faster than 59.55% of JavaScript online submissions for Longest Common Prefix.
+  Memory Usage: 42.5 MB, less than 58.12% of JavaScript online submissions for Longest Common Prefix.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
