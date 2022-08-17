@@ -287,3 +287,20 @@ var strStr = function(haystack, needle) {
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  43. Multiply Strings
+  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+  Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.
+*/
+
+var multiply = function(num1, num2) {
+  return (BigInt(num1) * BigInt(num2)).toString()
+}
+
+/*
+  Runtime: 99 ms, faster than 73.73% of JavaScript online submissions for Multiply Strings.
+  Memory Usage: 42.1 MB, less than 93.65% of JavaScript online submissions for Multiply Strings.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
