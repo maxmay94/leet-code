@@ -94,3 +94,25 @@ var reverse = function(x) {
   Runtime: 105 ms, faster than 58.20% of JavaScript online submissions for Reverse Integer.
   Memory Usage: 44.4 MB, less than 17.89% of JavaScript online submissions for Reverse Integer.
 */
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  9. Palindrome Number
+  Given an integer x, return true if x is palindrome integer.
+
+  An integer is a palindrome when it reads the same backward as forward.
+  For example, 121 is a palindrome while 123 is not.
+*/
+
+var isPalindrome = function(x) {
+  if(x < 0) return false
+  return x === parseInt(x.toString().split('').reverse().join('')) ? true : false
+}
+
+/*
+  Runtime: 171 ms, faster than 96.12% of JavaScript online submissions for Palindrome Number.
+  Memory Usage: 51.1 MB, less than 52.12% of JavaScript online submissions for Palindrome Number.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
