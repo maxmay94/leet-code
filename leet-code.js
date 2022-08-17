@@ -147,3 +147,40 @@ var longestCommonPrefix = function(strs) {
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  19. Remove Nth Node From End of List
+  Given the head of a linked list, remove the nth node from the end of the list and return its head.
+*/
+
+var removeNthFromEnd = function(head, n) {
+  let dummyHead = new ListNode(-Infinity)
+  dummyHead.next = head
+  let resultHead = dummyHead
+  let count = 0
+  let tail = head
+  
+  while(count < n) {
+      count++
+      tail = tail.next
+  }
+  
+  let removeNode = head
+  let prev = dummyHead
+  
+  while(tail) {
+      tail = tail.next
+      removeNode = removeNode.next
+      prev = prev.next
+  }
+  
+  prev.next = removeNode.next
+  return resultHead.next
+}
+
+/*
+  Runtime: 80 ms, faster than 72.43% of JavaScript online submissions for Remove Nth Node From End of List.
+  Memory Usage: 43.2 MB, less than 36.10% of JavaScript online submissions for Remove Nth Node From End of List.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
