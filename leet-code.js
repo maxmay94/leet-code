@@ -229,7 +229,6 @@ var isValid = function(s) {
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 /*
   21. Merge Two Sorted Lists
   You are given the heads of two sorted linked lists list1 and list2.
@@ -301,6 +300,26 @@ var multiply = function(num1, num2) {
 /*
   Runtime: 99 ms, faster than 73.73% of JavaScript online submissions for Multiply Strings.
   Memory Usage: 42.1 MB, less than 93.65% of JavaScript online submissions for Multiply Strings.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+  66. Plus One
+  You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+  Increment the large integer by one and return the resulting array of digits.
+*/
+
+var plusOne = function(digits) {
+  digits = BigInt(digits.join(''))
+  digits++
+  return digits.toString().split('')
+}
+
+/*
+  Runtime: 105 ms, faster than 21.42% of JavaScript online submissions for Plus One.
+  Memory Usage: 41.8 MB, less than 74.85% of JavaScript online submissions for Plus One.
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
