@@ -1,1 +1,2 @@
-# Problems from leetcode AND code wars, using JavaScript AND Python
+# Problems from leetcode solved in JavasCript
+# Problems for Code Wars solved in Python
