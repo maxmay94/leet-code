@@ -1,1 +1,1 @@
-# A collcetion of solved problems from leetcode in no particular order
+# Problems from leetcode AND code wars, using JavaScript AND Python
