@@ -86,4 +86,22 @@ def open_or_senior(data):
             ret.append('Open')
     return ret
 
+# Better Solution 
+def openOrSenior(data):
+  return ["Senior" if age >= 55 and handicap >= 8 else "Open" for (age, handicap) in data]
+
+# ------------------------------------------------------------------------------------------------------------
+
+"""
+Return Negative
+  In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+    Examples
+    make_negative(1);  # return -1
+    make_negative(-5); # return -5
+    make_negative(0);  # return 0
+"""
+
+def make_negative( number ):
+  return -number if number > 0 else number
+
 # ------------------------------------------------------------------------------------------------------------
