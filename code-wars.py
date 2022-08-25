@@ -117,3 +117,31 @@ def solution(string, ending):
     return string.endswith(ending)
 
 # ------------------------------------------------------------------------------------------------------------
+
+"""
+Square Every Digit
+  Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+  For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+    Note: The function accepts an integer and returns an integer
+"""
+
+def square_digits(num):
+    nums = [int(d) for d in str(num)]
+    ret = []
+    
+    for n in nums:
+        str(ret.append(n**2))
+        
+    strings = [str(ints) for ints in ret]
+    response = "".join(strings)
+    return int(response)
+
+# imporoved solution
+
+def square_digits2(num):
+    ret = ""
+    for x in str(num):
+        ret += str(int(x)**2)
+    return int(ret)
+
+# ------------------------------------------------------------------------------------------------------------
