@@ -173,6 +173,7 @@ Mumbling
     accum("cwAt") -> "C-Ww-Aaa-Tttt"
 """
 
+#Naive Solution 
 def accum(s):
     ret = ''
     for i, char in enumerate(s):
@@ -186,6 +187,29 @@ def accum(s):
 
 #Better Solution
 def accum_2(s):
+    ret = ""
+    for i, c in enumerate(s):
+        ret += c.upper() + c.lower()*i + "-"
+    return ret[:-1]
+
+#Best Solution
+def accum_3(s):
     return '-'.join(c.upper() + c.lower() * i for i, c in enumerate(s))
+
+# ------------------------------------------------------------------------------------------------------------
+
+"""
+Abbreviate a Two Word Name
+  Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+  The output should be two capital letters with a dot separating them.
+    It should look like this:
+    Sam Harris => S.H
+    patrick feeney => P.F
+"""
+
+def abbrev_name(name):
+    first, last = name.upper().split()
+    return first[0] + '.' + last[0]
+
 
 # ------------------------------------------------------------------------------------------------------------
