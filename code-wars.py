@@ -163,3 +163,29 @@ def sum_two_smallest_numbers_2(numbers):
     return sum(sorted(numbers)[:2])
 
 # ------------------------------------------------------------------------------------------------------------
+
+"""
+Mumbling
+  This time no story, no theory. The examples below show you how to write function accum:
+    Examples:
+    accum("abcd") -> "A-Bb-Ccc-Dddd"
+    accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+    accum("cwAt") -> "C-Ww-Aaa-Tttt"
+"""
+
+def accum(s):
+    ret = ''
+    for i, char in enumerate(s):
+        for j in range(0, i + 1):
+            if j == 0:
+                ret += char.upper()
+            else:
+                ret += char.lower()
+        ret += '-'
+    return ret[:-1]
+
+#Better Solution
+def accum_2(s):
+    return '-'.join(c.upper() + c.lower() * i for i, c in enumerate(s))
+
+# ------------------------------------------------------------------------------------------------------------
