@@ -136,12 +136,30 @@ def square_digits(num):
     response = "".join(strings)
     return int(response)
 
-# imporoved solution
-
+# Better solution
 def square_digits2(num):
     ret = ""
     for x in str(num):
         ret += str(int(x)**2)
     return int(ret)
+
+# ------------------------------------------------------------------------------------------------------------
+
+"""
+Sum of two lowest positive integers
+  Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+    For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+    [10, 343445353, 3453445, 3453545353453] should return 3453455.
+"""
+
+def sum_two_smallest_numbers(numbers):
+    min1 = min(numbers)
+    numbers.remove(min1)
+    min2 = min(numbers)
+    return min1 + min2
+
+#Better Solution
+def sum_two_smallest_numbers_2(numbers):
+    return sum(sorted(numbers)[:2])
 
 # ------------------------------------------------------------------------------------------------------------
