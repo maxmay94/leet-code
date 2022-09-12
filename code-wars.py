@@ -385,3 +385,20 @@ def count_by(x, n):
     return [x * (i + 1) for i in range(0, n)]
 
 # ------------------------------------------------------------------------------------------------------------
+
+"""
+  FizzBuzz
+    For numbers in a given range, append 'Fizz' if n is divisible by 3, 'Buzz' if divisible by 5, and 'FizzBuzz' if n is divisible by both 3 and 5
+"""
+def fizzBuzz(start, end):
+  ret = []
+  for n in range (start, end):
+    if n % 5 == 0 and n % 3 == 0:
+      ret.append('FizzBuzz')
+    elif n % 3 == 0:
+      ret.append('Fizz')
+    elif n % 5 == 0:
+      ret.append('Buzz')
+  return(ret)
+
+# ------------------------------------------------------------------------------------------------------------
