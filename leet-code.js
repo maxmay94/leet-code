@@ -23,15 +23,15 @@ var uniqueMorseRepresentations = function(words) {
   let ret = new Set()
   
   morse.forEach((code, i) => {
-      letterMap.set(alph[i], code)
+    letterMap.set(alph[i], code)
   })
   
   words.forEach(word => {
-      let acc = ''
-      word.split('').forEach(char => {
-          acc += (letterMap.get(char))
-      })
-      if(!ret.has(acc)) ret.add(acc)
+    let acc = ''
+    word.split('').forEach(char => {
+      acc += (letterMap.get(char))
+    })
+    if(!ret.has(acc)) ret.add(acc)
   })
   
   return ret.size
@@ -54,12 +54,12 @@ var firstUniqChar = function(s) {
   const charMap = new Map()
   
   s.forEach(char => {
-      if(!charMap.has(char)) charMap.set(char, 1)
-      else charMap.set(char, charMap.get(char) + 1)
+    if(!charMap.has(char)) charMap.set(char, 1)
+    else charMap.set(char, charMap.get(char) + 1)
   })
   
   for(let i in s) {
-      if(charMap.get(s[i]) === 1) return i
+    if(charMap.get(s[i]) === 1) return i
   }
   return -1
 }
@@ -81,8 +81,8 @@ var reverse = function(x) {
   let ret = []
   let neg = false
   x.toString().split('').forEach(char => {
-      if(char == '-') neg = true
-      else ret.unshift(char)
+    if(char == '-') neg = true
+    else ret.unshift(char)
   })
   ret = parseInt(ret.join(''))
   if(neg) ret *= -1
@@ -128,15 +128,15 @@ var longestCommonPrefix = function(strs) {
   let result = []
   
   for(let i in strs[0]){
-      let same = true
-      for(let j = 1; j < strs.length; j++){
-          if(strs[j][i] !== strs[0][i]) {
-              same = !same
-              break
-          }
+    let same = true
+    for(let j = 1; j < strs.length; j++){
+      if(strs[j][i] !== strs[0][i]) {
+        same = !same
+        break
       }
-      if(same) result.push(strs[0][i])
-      else break
+    }
+    if(same) result.push(strs[0][i])
+    else break
   }
   return result.join('')
 }
@@ -161,17 +161,17 @@ var removeNthFromEnd = function(head, n) {
   let tail = head
   
   while(count < n) {
-      count++
-      tail = tail.next
+    count++
+    tail = tail.next
   }
   
   let removeNode = head
   let prev = dummyHead
   
   while(tail) {
-      tail = tail.next
-      removeNode = removeNode.next
-      prev = prev.next
+    tail = tail.next
+    removeNode = removeNode.next
+    prev = prev.next
   }
   
   prev.next = removeNode.next
@@ -199,24 +199,24 @@ var isValid = function(s) {
   let stack = []
   let valid = true
   for(let i = 0; i < s.length; i++) {
-      if(s[i] === '(' || s[i] === '[' || s[i] === '{' ) {
-          stack.push(s[i])
-      } else {
-          let temp = stack.pop()
-          if(temp === undefined) {
-              valid = false
-              break
-          } else if(temp === '(' && s[i] !== ')') {
-              valid = false
-              break
-          } else if(temp === '[' && s[i] !== ']') {
-              valid = false
-              break
-          } else if(temp === '{' && s[i] !== '}') {
-              valid = false
-              break
-          }
+    if(s[i] === '(' || s[i] === '[' || s[i] === '{' ) {
+      stack.push(s[i])
+    } else {
+      let temp = stack.pop()
+      if(temp === undefined) {
+        valid = false
+        break
+      } else if(temp === '(' && s[i] !== ')') {
+        valid = false
+        break
+      } else if(temp === '[' && s[i] !== ']') {
+        valid = false
+        break
+      } else if(temp === '{' && s[i] !== '}') {
+        valid = false
+        break
       }
+    }
   }
   if(stack.length !== 0) valid = false
   return valid
@@ -241,15 +241,15 @@ var mergeTwoLists = function(l1, l2) {
   let prev = dummy
   
   while(l1 && l2) {
-      if(l1.val <= l2.val) {
-          prev.next = l1
-          prev = l1
-          l1 = l1.next
-      } else {
-          prev.next = l2
-          prev = l2
-          l2 = l2.next
-      }
+    if(l1.val <= l2.val) {
+      prev.next = l1
+      prev = l1
+      l1 = l1.next
+    } else {
+      prev.next = l2
+      prev = l2
+      l2 = l2.next
+    }
   }
   
   if(!l1) prev.next = l2
