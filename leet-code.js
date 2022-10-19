@@ -349,22 +349,19 @@ function solveExpression(exp) {
   You must write an algorithm with O(log n) runtime complexity.
 */
 
-var searchInsert = function(nums, target) {
-  let ret = 0
-  for(let i = 0; nums[i] <= target; i++) {
-      if(nums[i] === target){
-          ret = i
-          break
-      }
-      else if(nums[i] > target) ret = i - 1
-      else ret = i + 1
+const searchInsert = (nums, target) => {
+  let lo = 0, hi = nums.length
+  while(lo < hi) { 
+      let mid = lo + Math.floor((hi-lo)/2)
+      if (target > nums[mid]) lo = mid + 1 
+      else hi = mid 
   }
-  return ret
+  return lo
 }
 
 /*
-  Runtime: 232 ms, faster than 5.39% of JavaScript online submissions for Search Insert Position.
-  Memory Usage: 49.9 MB, less than 5.40% of JavaScript online submissions for Search Insert Position.
+  Runtime: 72 ms, faster than 82.99% of JavaScript online submissions for Search Insert Position.
+  Memory Usage: 42.2 MB, less than 58.01% of JavaScript online submissions for Search Insert Position.
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
