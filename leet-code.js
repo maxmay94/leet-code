@@ -352,9 +352,9 @@ function solveExpression(exp) {
 const searchInsert = (nums, target) => {
   let lo = 0, hi = nums.length
   while(lo < hi) { 
-      let mid = lo + Math.floor((hi-lo)/2)
-      if (target > nums[mid]) lo = mid + 1 
-      else hi = mid 
+    let mid = lo + Math.floor((hi-lo)/2)
+    if (target > nums[mid]) lo = mid + 1 
+    else hi = mid 
   }
   return lo
 }
@@ -362,6 +362,45 @@ const searchInsert = (nums, target) => {
 /*
   Runtime: 72 ms, faster than 82.99% of JavaScript online submissions for Search Insert Position.
   Memory Usage: 42.2 MB, less than 58.01% of JavaScript online submissions for Search Insert Position.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  2. Add Two Numbers
+  You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+  You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+*/
+
+var addTwoNumbers = function(l1, l2) {
+  let head = null
+  let temp = null
+  let carry = 0
+  while (l1 !== null || l2 !== null) {
+      let sum = carry
+      if (l1 != null) {
+          sum += l1.val
+          l1 = l1.next
+      }
+      if (l2 != null) {
+          sum += l2.val
+          l2 = l2.next
+      }
+      let node = new ListNode(Math.floor(sum) % 10)
+      carry = Math.floor(sum / 10)
+      if (temp == null) {
+          temp = head = node
+      } else {
+          temp.next = node
+          temp = temp.next
+      }
+  }
+  if (carry > 0) temp.next = new ListNode(carry)
+  return head
+}
+
+/*
+  Got a little stuck and had to search for help, but we got there
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
