@@ -426,8 +426,9 @@ var addTwoNumbers = function(l1, l2) {
 */
 
 var recoverSecret = function(triplets) {
-  
   let trips = triplets
+  let tempKey
+  let ret = []
   
   const mapItems = (trips) => {
     let charMap = new Map()
@@ -441,8 +442,6 @@ var recoverSecret = function(triplets) {
     return charMap
   }
   
-  let tempKey
-  
   const findZero = (value, key) => {
     // Get Key of item with value 0
     if(value === 0) {
@@ -450,18 +449,15 @@ var recoverSecret = function(triplets) {
     }
   }
   
-  let ret = []
-  
   const checkTrips = () => {
     // Flatten 2d Array and see if there is anything in it
-    return trips.flat().length > 0 ? true :  false
+    return trips.flat().length > 0 ? true : false
   }
   
   while(checkTrips()) {
     let zeroMap = mapItems(trips)
     zeroMap.forEach(findZero)
     ret.push(tempKey)
-    
     // Remove the selected character from all arrays
     trips.forEach(trip => {
       if(trip[0] === tempKey){
@@ -472,7 +468,6 @@ var recoverSecret = function(triplets) {
 
   return ret.join('')
 }
-
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
