@@ -404,3 +404,75 @@ var addTwoNumbers = function(l1, l2) {
 */
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  Recover a secret string from random triplets.
+
+  There is a secret string which is unknown to you. Given a collection of random triplets from the string, recover the original string.
+  A triplet here is defined as a sequence of three letters such that each letter occurs somewhere before the next in the given string. "whi" is a triplet for the string "whatisup".
+  As a simplification, you may assume that no letter occurs more than once in the secret string.
+  You can assume nothing about the triplets given to you other than that they are valid triplets and that they contain sufficient information to deduce the original string. In particular, this means that the secret string will never contain letters that do not occur in one of the triplets given to you.
+
+          secret1 = "whatisup"
+          triplets1 = [
+            ['t','u','p'],
+            ['w','h','i'],
+            ['t','s','u'],
+            ['a','t','s'],
+            ['h','a','p'],
+            ['t','i','s'],
+            ['w','h','s']
+          ]
+*/
+
+var recoverSecret = function(triplets) {
+  
+  let trips = triplets
+  
+  const mapItems = (trips) => {
+    let charMap = new Map()
+    //Map Items in triplets, if they are in index 0 in all arrays, value should be 0
+    trips.forEach(trip => {
+      trip.forEach((char, i) => {
+        if(!charMap.has(char)) charMap.set(char, i)
+        else charMap.set(char, charMap.get(char) + i)
+      })
+    })
+    return charMap
+  }
+  
+  let tempKey
+  
+  const findZero = (value, key) => {
+    // Get Key of item with value 0
+    if(value === 0) {
+      tempKey = key
+    }
+  }
+  
+  let ret = []
+  
+  const checkTrips = () => {
+    // Flatten 2d Array and see if there is anything in it
+    return trips.flat().length > 0 ? true :  false
+  }
+  
+  while(checkTrips()) {
+    let zeroMap = mapItems(trips)
+    zeroMap.forEach(findZero)
+    ret.push(tempKey)
+    
+    // Remove the selected character from all arrays
+    trips.forEach(trip => {
+      if(trip[0] === tempKey){
+        trip.shift()
+      } 
+    })
+  }
+
+  return ret.join('')
+}
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
