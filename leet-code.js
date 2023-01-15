@@ -471,3 +471,25 @@ var recoverSecret = function(triplets) {
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+/*
+  231. Power of Two
+    Given an integer n, return true if it is a power of two. Otherwise, return false.
+    An integer n is a power of two, if there exists an integer x such that n == 2x.
+*/
+
+var isPowerOfTwo = function(n) {
+  if (n == 0) return false
+  if( n % 2 !== 0 && n !== 1) return false
+  while (n != 1) {
+      if (n % 2 != 0) return false
+      n = n / 2
+  }
+  return true
+}
+
+/*
+  Runtime: 73 ms, faster than 87.31% of JavaScript online submissions for Search Insert Position.
+  Memory Usage: 43 MB, less than 91.47% of JavaScript online submissions for Search Insert Position.
+*/
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
