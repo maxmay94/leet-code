@@ -435,19 +435,10 @@ def fizzBuzz(start, end):
   Note for C
   The two arrays have the same size (> 0) given as parameter in function comp.
 """
-def comp(a, b):
-    if a is None or b is None:
+def comp(array1, array2):
+    try:
+        return sorted([i ** 2 for i in array1]) == sorted(array2)
+    except:
         return False
-    if len(a) != len(b):
-        return False
-    
-    sorted_a = sorted(a)
-    sorted_b = sorted(b)
-    
-    for i in range(len(sorted_a)):
-        if sorted_a[i] ** 2 != sorted_b[i]:
-            return False
-    
-    return True
 
 # ------------------------------------------------------------------------------------------------------------
